@@ -8,7 +8,7 @@ import time
 import sys
 
 logging.basicConfig(level=logging.DEBUG,format='%(asctime)s %(message)s')
-I_want_money=IQ_Option("twopointfive@gmail.com","twopointfive@gmail.com")
+I_want_money=IQ_Option("arishisgay@gay.com","arishisgay@gay.com")
 #Default is "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36"
 header={"User-Agent":r"Mozilla/5.0 (X11; Linux x86_64; rv:70.0) Gecko/20100101 Firefox/70.0"}
 cookie={"I_want_money":"GOOD"}
@@ -22,7 +22,7 @@ I_want_money.change_balance(MODE)
                         #MODE: "PRACTICE"/"REAL
 I_want_money.get_balance()
 
-API = IQ_Option("twopointfive@gmail.com", "twopointfive@gmail.com")
+API = IQ_Option("arishisgay@gay.com", "arishisgay@gay.com")
 check, reason = API.connect()
 if not check:
     print("Connection failed. Reason: {}".format(reason))
@@ -66,7 +66,7 @@ while True:
         if (current_price <= 10 ) :
             if not trade_placed:
                 direction = "call"
-                now = time.time()
+                now = time.localtime()
                 def get_remaining_seconds(x):
                   current_time = time.localtime()
                   current_minute = current_time.tm_min
@@ -89,7 +89,7 @@ while True:
                 
                 result, order_id = API.buy(amount, "EURUSD-OTC", direction, value)
                 if result:
-                    print("CALL Trade placed successfully at : ",current_price)
+                    print("CALL Trade placed successfully at : ",now )
                     trade_placed = True
                 else:
                     print("Error placing trade:")
@@ -105,7 +105,7 @@ while True:
         if (current_price >= 0 ) :
             if not trade_placed:
                 direction = "put"
-                now = time.time()
+                now = time.localtime()
                 def get_remaining_seconds(x):
                   current_time = time.localtime()
                   current_minute = current_time.tm_min
@@ -128,7 +128,7 @@ while True:
                
                 result, order_id = API.buy(amount, "EURUSD-OTC", direction, value)
                 if result:
-                    print("PUT Trade placed successfully ")
+                    print("PUT Trade placed successfully at :",now)
                     trade_placed = True
                 else:
                     print("Error placing trade:")
@@ -150,5 +150,4 @@ while True:
             print("Trade result unknown.")
        
         trade_placed = False
-    print(then)
     time.sleep(0.5)
