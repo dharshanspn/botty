@@ -30,4 +30,4 @@ while True:
               mins = (elapsed_time-hours*3600)//60
               status = f"UP Running...  {hours:.2f} hr {mins:.2f} min"
               telegram_bot_sendtext(status)
-    time.sleep(2)
+        time.sleep(2)
